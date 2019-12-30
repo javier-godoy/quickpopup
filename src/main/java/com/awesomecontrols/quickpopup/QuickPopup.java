@@ -85,8 +85,7 @@ public class QuickPopup extends PolymerTemplate<IQuickPopupModel> implements  Ha
     private void setPosition(double top, double left) {
         this.top = top;
         this.left = left;
-        popup.getStyle().set("top", ""+top+"px");
-        popup.getStyle().set("left", ""+left+"px");
+        getElement().executeJs("this.__setPosition($0,$1)", top, left);
     }
     
     /**
@@ -104,10 +103,6 @@ public class QuickPopup extends PolymerTemplate<IQuickPopupModel> implements  Ha
     public void clearContent() {
         this.popup.removeAll();
     }
-    
-//    public void setPopupForComponentId(String target) {
-//        this.targetId = target;
-//    }
     
     /**
      * Show the popup
